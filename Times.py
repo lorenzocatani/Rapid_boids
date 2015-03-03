@@ -21,11 +21,10 @@ boid_y_velocities = np.array([random.uniform(-20.0,20.0) for x in range(50)])
 boids=(boids_x,boids_y,boid_x_velocities,boid_y_velocities)
 '''
 
-# Time evaluation in each strategy (bad_boids, class_boids, rapid_boids ):
+# Time evaluation in each strategy (bad_boids,rapid_boids ):
 duration_bad_boids = timeit.timeit('update_boids(boids)',setup_string_bad,number=100)
 duration_rapid_boids = timeit.timeit('update_boids(boids)',setup_string_rapid,number=100)
-#duration_class_boids = timeit.timeit('update_boids(boids)',setup_string_class,number=100)
+
 
 print 'bad_boids time is : '+str(duration_bad_boids)
 print 'rapid_boids time is : '+str(duration_rapid_boids)
-#print 'class_boids time is : '+str(duration_class_boids)
