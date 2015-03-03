@@ -2,7 +2,7 @@ import matplotlib
 matplotlib.use('TkAgg')
 
 
-from boids import Boids,Eagle
+from class_boids import Boids,Eagle
 from matplotlib import pyplot as plt
 from matplotlib import animation
 
