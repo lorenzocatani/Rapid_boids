@@ -14,20 +14,20 @@ boids=(boids_x,boids_y,boid_x_velocities,boid_y_velocities)
 def update_boids(boids):
 	xs,ys,xvs,yvs=boids
 	# Fly towards the middle
-	xvs+=(np.sum(xs)-xs)*0.01/len(xs)
-	yvs+=(np.sum(ys)-ys)*0.01/len(xs)
+	xvs+=(np.sum(xs)-xs)*0.01/50
+	yvs+=(np.sum(ys)-ys)*0.01/50
 	# Fly away from nearby boids
-	for i in range(len(xs)):
-		for j in range(len(xs)):
+	for i in range(50):
+		for j in range(50):
 			if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < 100:
-				xvs[i]=xvs[i]+(xs[i]-xs[j])
-				yvs[i]=yvs[i]+(ys[i]-ys[j])
+				xvs[i]+=(xs[i]-xs[j])
+				yvs[i]+=(ys[i]-ys[j])
 	# Try to match speed with nearby boids
-	for i in range(len(xs)):
-		for j in range(len(xs)):
+	for i in range(50):
+		for j in range(50):
 			if (xs[j]-xs[i])**2 + (ys[j]-ys[i])**2 < 10000:
-				xvs[i]=xvs[i]+(xvs[j]-xvs[i])*0.125/len(xs)
-				yvs[i]=yvs[i]+(yvs[j]-yvs[i])*0.125/len(xs)
+				xvs[i]+=(xvs[j]-xvs[i])*0.125/50
+				yvs[i]+=(yvs[j]-yvs[i])*0.125/50
 	# Move according to velocities
 	xs+=xvs
 	ys+=yvs
