@@ -10,10 +10,6 @@ boid_y_velocities=[random.uniform(-20.0,20.0) for x in range(50)]
 boids=(boids_x,boids_y,boid_x_velocities,boid_y_velocities)
 '''
 
-#setup_string_class = '''from class_boids import update_boids
-#import random
-#
-#'''
 
 setup_string_rapid = '''from rapid_boids import update_boids
 import random
